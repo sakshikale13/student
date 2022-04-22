@@ -1,0 +1,111 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Student Registration</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <form class="d-flex">
+
+          <button type="button" class="btn btn-primary"(click)="Addstudent()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Add student
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Student form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row" #studentarr="ngForm" [formGroup]="sForm" (ngSubmit)="onClicksubmit(studentarr.value)">
+          <div class="mb-3">
+            <label for="exampleInputFirstname" class="form-label">Firstname</label>
+            <input type="firstname" class="form-control" name="firstname" formControlName="firstname"
+              id="exampleInputfirstname" aria-describedby="firstnameHelp">
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputlastname" class="form-label">lastname</label>
+            <input type="lastname" class="form-control" name="lastname" formControlName="lastname"
+              id="exampleInputlastname">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputemail" class="form-label">email</label>
+            <input type="email" class="form-control" name="email" formControlName="email" id="exampleInputemail">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputaddress" class="form-label">address</label>
+            <input type="textarea" class="form-control" name="address" formControlName="address"
+              id="exampleInputaddress">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputaddress" class="form-label">city</label>
+            <input type="city" class="form-control" name="city" formControlName="city" id="exampleInputcity">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputcourses" class="form-label">courses</label>
+            <input type="courses" class="form-control" name="courses" formControlName="courses"
+              id="exampleInputcourses">
+          </div>
+
+          <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <h1>Student</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>email</th>
+        <th>address</th>
+        <th>mobileno</th>
+        <th>city</th>
+        <th>courses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of  sArray;let i=index">
+
+        <td>{{s.firstname}}</td>
+        <td>{{s.lastname}}</td>
+        <td>{{s.email}}</td>
+        <td>{{s.address}}</td>
+        <td>{{s.mobileno}}</td>
+        <td>{{s.city}}</td>
+        <td>{{s.courses}}</td>
+
+
+        <td>
+          <input type="button" value="Edit" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop" (click)="editData(i)">
+          <input type="button" value="delete"(click)="deleteData(i)" class="btn btn-danger">
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
