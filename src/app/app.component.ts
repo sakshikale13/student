@@ -1,3 +1,4 @@
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
 
@@ -8,4 +9,16 @@ import { FormControl,FormGroup } from '@angular/forms';
 })
 export class AppComponent {
   title = 'my-app';
+  myInputMessage:string ="I am the parent comppnent";
+  
+  
+  
+  constructor(){
+
+  }
+  getdata(data: any){
+console.log(data);
+  }
 }
+  
+

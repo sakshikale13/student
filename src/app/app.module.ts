@@ -10,7 +10,7 @@ import { CookieService } from './cookie.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentsComponent } from './students/students.component';
-
+import { Observable } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent,
